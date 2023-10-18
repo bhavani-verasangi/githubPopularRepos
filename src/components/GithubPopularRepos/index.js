@@ -42,7 +42,7 @@ class GithubPopularRepos extends Component {
     const response = await fetch(apiUrl)
     if (response.ok) {
       const fetchedData = await response.json()
-      const updatedData = fetchedData.popular_repos.maps(eachRepository => ({
+      const updatedData = fetchedData.popular_repos.map(eachRepository => ({
         id: eachRepository.id,
         imageUrl: eachRepository.avatar_url,
         name: eachRepository.name,
@@ -63,7 +63,7 @@ class GithubPopularRepos extends Component {
 
   renderLoadingView = () => (
     // eslint-disable-next-line react/no-unknown-property
-    <div testid="loader">
+    <div data-testid="loader">
       <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
     </div>
   )
